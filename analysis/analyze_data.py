@@ -62,7 +62,7 @@ flags.DEFINE_string("plot_dir", "../results/figure",
 
 flags.DEFINE_string("emotion_file", "../data/emotions.txt",
                     "File containing list of emotions.")
-flags.DEFINE_string("sentiment_dict", "../data/sentiment_dict.json",
+flags.DEFINE_string("sentiment_dict", "../data/sentiment_mapping.json",
                     "Sentiment dictionary.")
 
 

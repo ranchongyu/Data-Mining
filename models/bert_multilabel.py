@@ -47,7 +47,7 @@ val_dataset = GoEmotionsDataset(val_texts, val_labels, tokenizer)
 # ==== 训练参数配置 ====
 training_args = TrainingArguments(
     output_dir=output_dir,
-    evaluation_strategy="epoch",
+    eval_strategy="epoch",  # 旧版参数名（v3.x 或更早）
     save_strategy="epoch",
     learning_rate=2e-5,
     per_device_train_batch_size=8,

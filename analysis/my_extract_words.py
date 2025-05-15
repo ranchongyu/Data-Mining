@@ -10,7 +10,7 @@ import seaborn as sns
 # ==== 文件路径配置 ====
 data_path = "../data/split_encoded_train/mapped_goemotions_1.csv"
 emotion_file = "../data/emotions.txt"
-output_csv = "../data/emotion_top_words.csv"
+output_csv = "../data/results/emotion_top_words.csv"
 wordcloud_dir = "../results/wordclouds"
 os.makedirs(wordcloud_dir, exist_ok=True)
 

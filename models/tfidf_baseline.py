@@ -27,3 +27,22 @@ model.fit(X_train_vec, y_train)
 # 评估模型
 y_pred = model.predict(X_test_vec)
 print(classification_report(y_test, y_pred, target_names=label_cols))
+from sklearn.metrics import hamming_loss
+
+hloss = hamming_loss(y_test, y_pred)
+print("Hamming Loss:", hloss)
+report = classification_report(y_test, y_pred, target_names=label_cols, output_dict=True)
+# pd.DataFrame(report).transpose().to_csv("../results/tfidf_svm_report.csv")
+report_df = pd.DataFrame(report).transpose()
+report_df.loc["Hamming Loss", "f1-score"] = hloss
+report_df.to_csv("../results/tfidf_svm_report.csv")
+
+import matplotlib.pyplot as plt
+f1_scores = pd.DataFrame(report).transpose().loc[label_cols, "f1-score"].sort_values(ascending=False)
+plt.figure(figsize=(12, 6))
+f1_scores.plot(kind="bar", color="cornflowerblue")
+plt.title("TF-IDF + SVM Model - F1 Scores by Label")
+plt.ylabel("F1 Score")
+plt.xticks(rotation=90)
+plt.tight_layout()
+plt.savefig("../results/tfidf_svm_f1.png", dpi=300)

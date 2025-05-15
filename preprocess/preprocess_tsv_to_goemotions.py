@@ -5,7 +5,7 @@ import math
 import json
 
 # ==== 路径配置 ====
-input_file = "../data/test.tsv"
+input_file = "../data/formal-data/test.tsv"
 output_dir = "../data/split_encoded_test"
 os.makedirs(output_dir, exist_ok=True)
 
